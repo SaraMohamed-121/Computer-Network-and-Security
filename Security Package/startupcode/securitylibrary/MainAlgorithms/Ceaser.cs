@@ -46,7 +46,6 @@ namespace SecurityLibrary
         {
             plainText = plainText.ToLower();
             cipherText = cipherText.ToLower();
-            //int mainkey = (Array.IndexOf(alphabetarray, cipherText[0]) - Array.IndexOf(alphabetarray, plainText[0]));
             int Temp = a_z.IndexOf(cipherText[0]) - a_z.IndexOf(plainText[0]);
             int mainkey = Temp >= 0 ? Temp : Temp + 26;
             return mainkey;
