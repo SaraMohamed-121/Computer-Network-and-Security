@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "A:\\Programming\\Security Tasks\\Security-Package(global)\\Security Package\\startupcode\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{64AFBAE4-208F-4F5D-B9F4-CCA2E71F36E4}|SecurityLibrary\\SecurityLibrary.csproj|a:\\programming\\security tasks\\security-package(global)\\security package\\startupcode\\securitylibrary\\mainalgorithms\\ceaser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64AFBAE4-208F-4F5D-B9F4-CCA2E71F36E4}|SecurityLibrary\\SecurityLibrary.csproj|solutionrelative:securitylibrary\\mainalgorithms\\ceaser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4638FC66-5518-485D-A541-D0A6044730B0}|SecurityPackageTest\\SecurityPackageTest.csproj|A:\\Programming\\Security Tasks\\Security-Package(global)\\Security Package\\startupcode\\securitypackagetest\\ceasertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4638FC66-5518-485D-A541-D0A6044730B0}|SecurityPackageTest\\SecurityPackageTest.csproj|solutionrelative:securitypackagetest\\ceasertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CeaserTest.cs",
+              "DocumentMoniker": "A:\\Programming\\Security Tasks\\Security-Package(global)\\Security Package\\startupcode\\securitypackagetest\\CeaserTest.cs",
+              "RelativeDocumentMoniker": "securitypackagetest\\CeaserTest.cs",
+              "ToolTip": "A:\\Programming\\Security Tasks\\Security-Package(global)\\Security Package\\startupcode\\securitypackagetest\\CeaserTest.cs",
+              "RelativeToolTip": "securitypackagetest\\CeaserTest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T22:49:45.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Ceaser.cs",
+              "DocumentMoniker": "A:\\Programming\\Security Tasks\\Security-Package(global)\\Security Package\\startupcode\\securitylibrary\\MainAlgorithms\\Ceaser.cs",
+              "RelativeDocumentMoniker": "securitylibrary\\MainAlgorithms\\Ceaser.cs",
+              "ToolTip": "A:\\Programming\\Security Tasks\\Security-Package(global)\\Security Package\\startupcode\\securitylibrary\\MainAlgorithms\\Ceaser.cs",
+              "RelativeToolTip": "securitylibrary\\MainAlgorithms\\Ceaser.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwCQAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T22:41:09.179Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
