@@ -4,4 +4,4 @@
 2. Monoalphabetic
 3. Playfair
 #
-![image](https://github.com/SaraMohamed-121/Computer-Network-and-Security/assets/105616126/26339c37-567f-4203-bbaf-1dbe5ce3559a)
+![image](https://github.com/SaraMohamed-121/Computer-Network-and-Security/assets/105616126/ac300c0c-c142-4338-a59f-3dc6084b985c)
