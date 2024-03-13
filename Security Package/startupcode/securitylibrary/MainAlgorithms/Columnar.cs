@@ -8,10 +8,184 @@ namespace SecurityLibrary
 {
     public class Columnar : ICryptographicTechnique<string, List<int>>
     {
-      
+        static List<List<int>> Permutations(List<int> keys)
+        {
+            List<List<int>> result = new List<List<int>>();
+            Permute(keys, 0, keys.Count - 1, result);
+            return result;
+        }
+
+        static void Permute(List<int> keys, int left, int right, List<List<int>> result)
+        {
+            if (left == right)
+            {
+                result.Add(new List<int>(keys));
+            }
+            else
+            {
+                for (int i = left; i <= right; i++)
+                {
+                    int temp = keys[left];
+                    keys[left] = keys[i];
+                    keys[i] = temp;
+                    Permute(keys, left + 1, right, result);
+                    temp = keys[left];
+                    keys[left] = keys[i];
+                    keys[i] = temp;
+                }
+            }
+        }
+
+
         public List<int> Analyse(string plainText, string cipherText)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            cipherText = cipherText.ToLower();
+            int Len_CT = cipherText.Length;
+
+            int Num_of_rows, Num_of_columns = 0;
+            for (int i = 2; i < 8; i++)
+            {
+                if (Len_CT % i == 0)
+                {
+                    Num_of_columns = i;
+                }
+            }
+
+            Num_of_rows = cipherText.Length / Num_of_columns;
+            char[,] plain = new char[Num_of_rows, Num_of_columns];
+            char[,] cipher = new char[Num_of_rows, Num_of_columns];
+            List<int> key = new List<int>(Num_of_columns);
+
+            int counter = 0;
+            for (int i = 0; i < Num_of_rows; i++)
+            {
+                for (int j = 0; j < Num_of_columns; j++)
+                {
+                    if (counter < plainText.Length)
+                    {
+                        plain[i, j] = plainText[counter];
+                        counter++;
+                    }
+
+                }
+            }
+
+            counter = 0;
+            for (int i = 0; i < Num_of_columns; i++)
+            {
+                for (int j = 0; j < Num_of_rows; j++)
+                {
+                    if (counter < cipherText.Length)
+                    {
+                        cipher[j, i] = cipherText[counter];
+                        counter++;
+                    }
+                }
+            }
+
+            int index = 0;
+            for (int i = 0; i < Num_of_columns; i++)
+            {
+                for (int k = 0; k < Num_of_columns; k++)
+                {
+                    for (int j = 0; j < Num_of_rows; j++)
+                    {
+                        if (plain[j, i] == cipher[j, k])
+                        {
+                            index++;
+                        }
+                        if (index == Num_of_rows)
+                        {
+                            key.Add(k + 1);
+                        }
+                    }
+                    index = 0;
+                }
+            }
+            if (key.Count == 0) //using bruteforce
+            {
+                List<int> keys = new List<int>();
+                for (int range = 1; range < plainText.Length; range++)
+                {
+                    int keyRange = range;
+                    keys = new List<int>();
+                    for (int i = 1; i <= keyRange; i++)
+                    {
+                        keys.Add(i);
+                    }
+
+                    List<List<int>> permutations = Permutations(keys);
+                    //1, 4, 3, 2
+                    //int count = 0;
+                    //foreach (List<int> permutation in permutations)
+                    //{
+                    //    if (permutation[0] == 1 &&
+                    //        permutation[1] == 4 &&
+                    //        permutation[2] == 3 &&
+                    //        permutation[3] == 2 
+                    //      )
+                    //    {
+                    //        break;
+                    //    }
+                    //    count++;
+                    //}
+                    for (int p = 0; p < permutations.Count; p++)
+                    {
+
+                        string testCipher = Encrypt(plainText, permutations[p]);
+
+                        //string finaTest="";
+                        //analysis 1
+                        //"ttnaaptmtsuoaodwcoixknlxpetx"
+                        //"ttnaaptmtsuoaodwcoiknlpet"
+                        //foreach (char tt in testCipher)
+                        //{
+                        //    if (tt != 'x')
+                        //        finaTest += tt;
+                        //}
+                        string testCipherUpper = testCipher.ToUpper();
+                        bool isequal = true;
+
+                        for (int i = 0; i < cipherText.Length; i++)
+                        {
+                            if (cipherText[i] != testCipher[i])
+                            {
+                                //
+                                //C.T="cusnpremeieotcc"
+                                isequal = false;
+                                break;
+                            }
+                        }
+                        if (isequal)
+                        {
+                            return permutations[p];
+                        }
+                        for (int i = 0; i < cipherText.Length; i++)
+                        {
+
+                            if (cipherText[i] != testCipherUpper[i])
+                            {
+                                isequal = false;
+                                break;
+                            }
+
+                        }
+                        if (isequal)
+                        {
+                            return permutations[p];
+                        }
+                    }
+                }
+            }
+            //if (key.Count == 0)
+            //{
+            //    for (int i = 0; i < Num_of_columns; i++)
+            //    {
+            //        key.Add(0);
+            //    }
+            //}
+            return key;
         }
 
         public string Decrypt(string cipherText, List<int> key)
@@ -107,3 +281,17 @@ namespace SecurityLibrary
         }
     }
 }
+//int count = 0;
+//foreach (List<int> permutation in permutations)
+//{
+//    if (permutation[0] == 3 &&
+//        permutation[1] == 2 &&
+//        permutation[2] == 6 &&
+//        permutation[3] == 4 &&
+//        permutation[4] == 1 &&
+//        permutation[5] == 5)
+//    {
+//        break;
+//    }
+//    count++;
+//}
