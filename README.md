@@ -20,9 +20,8 @@
 2. Extended Euclid
 #
 ![image](https://github.com/user-attachments/assets/9a71379a-8710-49ac-9c06-e10b69aa142a)
-#
 
-# **Milestone 4**
+## **Milestone 4**
 1. DES (Data Encryption Standard)
 
 ## **Milestone 5**
